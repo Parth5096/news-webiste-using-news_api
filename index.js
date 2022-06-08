@@ -103,6 +103,16 @@ $( "h1" ).html( "Tech News" )
           $("#filternews").show();
           });
         
+               $('#search-data').keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                    const userinput =  $( "#search-data" ).val();
+                             filternews(userinput);
+                                 $( "h1" ).html( capitalize(userinput)+" News" )
+                                   $("#newsbox").hide();
+                                   $("#filternews").show();
+                }
+              });
 
  $("#submit").click(function(){
            const userinput =  $( "#search-data" ).val();
@@ -113,9 +123,6 @@ $( "h1" ).html( "Tech News" )
               });
 
     });
-
-
-
 
 
 
